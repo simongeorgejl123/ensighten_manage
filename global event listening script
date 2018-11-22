@@ -1,6 +1,7 @@
 function jlEvent(event,action,eventName) {
   document.body.addEventListener(event,function(e) {
-    e.detail && e.detail.action && e.detail.action == action ? 
-    // console.log(eventName);
-    Bootstrapper.ensEvent.trigger(eventName) : ''
-    })}
+    if (e.detail && e.detail.action && e.detail.action == action) { 
+    Bootstrapper.ensEvent.trigger(eventName);console.log(eventName + ' fired');
+    }});}
+
+jlEvent('dataStateChange','InformationClicked','OneJL - m2m - contextLink'); // contextual links on PDP 
